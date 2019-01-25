@@ -17,4 +17,13 @@ feature 'The homepage should have a text box to fill in your name' do
     visit('/')
     find('form').visible?
   end
+
+  feature 'The play page should have a message to the user' do
+    scenario 'The play page says: Welcome #{@name}, lets play Rock, Paper, Scissors!' do
+      visit('/')
+      fill_in 'name', with: 'name1'
+      click_button 'Login'
+      expect(page).to have_content 'Welcome name1, lets play Rock, Paper, Scissors!'
+    end
+  end
 end
