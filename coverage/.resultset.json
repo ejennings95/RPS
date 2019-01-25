@@ -1,0 +1,27 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/elliotjennings/Desktop/makers/week-3/weekend-challenge/RPS/lib/app.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/elliotjennings/Desktop/makers/week-3/weekend-challenge/RPS/spec/features/features_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1548438856
+  }
+}
