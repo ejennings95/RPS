@@ -1,6 +1,12 @@
 <div style="display: flex; flex-direction: column; justify-content: center; height: 100vh;">
 <center>
   <h1>Rock, Paper, Scissors - can you win?</h1>
-  <h2>To login enter your name:</H2>
+  <form action="/submit" method="post">
+    <label for="name">
+      To login enter your name:
+    </label>
+    <input type="text" name="name">
+    <input type="submit" value="Login">
+  </form>
 </center>
 </div>
