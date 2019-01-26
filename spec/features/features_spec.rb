@@ -26,4 +26,35 @@ feature 'The homepage should have a text box to fill in your name' do
       expect(page).to have_content 'Welcome name1, lets play Rock, Paper, Scissors!'
     end
   end
+
+  feature 'The play page should have a drop down box to choose Rock, Papper or Scissors' do
+    scenario 'under the message to the user there should be a drop down box' do
+      visit('/')
+      fill_in 'name', with: 'name1'
+      click_button 'Login'
+      find('form').visible?
+    end
+  end
+
+  feature 'The result page should say your choice and the computers' do
+    scenario 'it will say the two choices' do
+      visit('/')
+      fill_in 'name', with: 'name1'
+      click_button 'Login'
+      select "Rock", from: 'move'
+      click_button 'Play'
+      expect(page).to have_content '1 vs computers move'
+    end
+  end
+
+  feature 'The result page should say the winner' do
+    scenario 'it will say the winner is...' do
+      visit('/')
+      fill_in 'name', with: 'name1'
+      click_button 'Login'
+      select "Rock", from: 'move'
+      click_button 'Play'
+      expect(page).to have_content 'Winner is:'
+    end
+  end
 end

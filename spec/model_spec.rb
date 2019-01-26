@@ -16,3 +16,20 @@ describe Player do
     expect(described_class.instance).to be_an_instance_of Player
   end
 end
+
+describe Game do
+    let(:move) { double(:move) }
+    subject(:player1) { described_class.new('move') }
+
+    it 'should save the move choice' do
+      expect(player1.move).to eq 'move'
+    end
+
+    it 'should create a new instance of the game class' do
+      expect(described_class.create(player1)).to be_an_instance_of Game
+    end
+
+    it 'should return an instance of game' do
+      expect(described_class.instance).to be_an_instance_of Game
+    end
+  end

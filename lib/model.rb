@@ -15,3 +15,21 @@ class Player
   end
 
 end
+
+class Game
+
+  attr_reader :move
+
+  def initialize(move)
+    @move = move
+  end
+
+  def self.create(move)
+    @game = Game.new(move)
+  end
+
+  def self.instance
+    @game
+  end
+
+end
