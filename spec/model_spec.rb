@@ -43,6 +43,8 @@ describe Game do
     let(:Rock) { double(:Rock) }
     let(:Paper) { double(:Paper) }
     let(:Scissors) { double(:Scissors) }
+    let(:counter) { double(:counter, draw_counter: nil)}
+    let(:counter_test) { described_class.new(counter)}
 
     it 'should return a string of either Rock, Paper or Scissors' do
       expect(subject).to receive(:move_generator)
@@ -65,4 +67,27 @@ describe Game do
     it 'should return false if the computer beats the player' do
       expect(subject.winner(:Rock, :Paper)).to eq false
     end
+
+    it 'should allow counter to receive methods of the counter class' do
+      expect(counter).to receive(:draw_counter)
+      counter_test.winner(:Rock, :Rock)
+    end
+end
+
+describe Counter do
+  it 'should add one to the draw count' do
+    expect { subject.draw_counter }.to change {subject.draw_count}.by 1
+  end
+
+  it 'should add one to the win count' do
+    expect { subject.win_counter }.to change {subject.win_count}.by 1
+  end
+
+  it 'should add one to the lose count' do
+    expect { subject.lose_counter }.to change {subject.lose_count}.by 1
+  end
+
+  it 'should add one to the game count' do
+    expect { subject.draw_counter }.to change {subject.game_count}.by 1
+  end
 end

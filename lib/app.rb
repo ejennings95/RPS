@@ -13,6 +13,11 @@ class Rps < Sinatra::Base
 
   get ('/play') do
     @name = Player.instance.name
+    @rps = RockPaperScissors.create
+    @game_count = RockPaperScissors.instance.counter.game_count
+    @win_count = RockPaperScissors.instance.counter.win_count
+    @lose_count = RockPaperScissors.instance.counter.lose_count
+    @draw_count = RockPaperScissors.instance.counter.draw_count
     erb(:play)
   end
 
@@ -25,8 +30,12 @@ class Rps < Sinatra::Base
     @name = Player.instance.name
     @chosen_move = Game.instance.move
     @cp_move = Game.instance.computer_move
-    @winner = RockPaperScissors.new.winner(@chosen_move, @cp_move)
+    @winner = RockPaperScissors.instance.winner(@chosen_move, @cp_move)
     erb(:result)
+  end
+
+  post ('/playagain') do
+    redirect ('/play')
   end
 
   run! if app_file == $0
