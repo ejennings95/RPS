@@ -13,23 +13,29 @@ class Player
   def self.instance
     @player
   end
-
 end
 
 class Game
 
-  attr_reader :move
+  attr_reader :move, :computer_move
 
-  def initialize(move)
+  def initialize(move, computer_move)
     @move = move
+    @computer_move = computer_move
   end
 
-  def self.create(move)
-    @game = Game.new(move)
+  def self.create(move, computer_move)
+    @game = Game.new(move, computer_move)
   end
 
   def self.instance
     @game
   end
+end
 
+class RockPaperScissors
+
+  def move_generator
+    ["Rock", "Paper", "Scissors"].sample
+  end
 end

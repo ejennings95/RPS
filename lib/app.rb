@@ -13,17 +13,17 @@ class Rps < Sinatra::Base
 
   get ('/play') do
     @name = Player.instance.name
-    p @chosen_move
     erb(:play)
   end
 
   post ('/play') do
-    @move = Game.create(params[:move])
+    @move = Game.create(params[:move], RockPaperScissors.new.move_generator)
     redirect ('/result')
   end
 
   get ('/result') do
     @chosen_move = Game.instance.move
+    @cp_move = Game.instance.computer_move
     erb(:result)
   end
 

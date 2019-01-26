@@ -1,3 +1,5 @@
+require 'app'
+
 feature 'You should see a welcome message at the top of the page' do
   scenario 'Rock, Paper, Scissors - can you win? to appear on homepage' do
     visit('/')
@@ -38,12 +40,13 @@ feature 'The homepage should have a text box to fill in your name' do
 
   feature 'The result page should say your choice and the computers' do
     scenario 'it will say the two choices' do
+      allow(RockPaperScissors).to receive_message_chain("new.move_generator").and_return("Rock")
       visit('/')
       fill_in 'name', with: 'name1'
       click_button 'Login'
       select "Rock", from: 'move'
       click_button 'Play'
-      expect(page).to have_content '1 vs computers move'
+      expect(page).to have_content 'Rock vs Rock'
     end
   end
 
