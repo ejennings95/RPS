@@ -22,8 +22,10 @@ class Rps < Sinatra::Base
   end
 
   get ('/result') do
+    @name = Player.instance.name
     @chosen_move = Game.instance.move
     @cp_move = Game.instance.computer_move
+    @winner = RockPaperScissors.new.winner(@chosen_move, @cp_move)
     erb(:result)
   end
 

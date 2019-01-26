@@ -2,7 +2,15 @@
 <center>
   <h1>
   <%= "#{@chosen_move} vs #{@cp_move}" %> <br />
-  <%= "Winner is:" %>
+  <% if @winner == 'Draw!' %>
+  <%= 'It is a draw!' %>
+  <% end %>
+  <% if @winner == true %>
+  <%= "#{@name} wins!" %>
+  <% end %>
+  <% if @winner == false %>
+  <%= 'It is a win for the computer this time!' %>
+  <% end %>
   </h1>
 </center>
 </div>

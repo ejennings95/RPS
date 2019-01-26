@@ -38,4 +38,17 @@ class RockPaperScissors
   def move_generator
     ["Rock", "Paper", "Scissors"].sample
   end
+
+  def decider
+    {
+   :Rock => :Scissors,
+   :Scissors => :Paper,
+   :Paper => :Rock
+    }
+  end
+
+  def winner(player1, computer)
+    return 'Draw!' if player1 == computer
+    decider[player1.to_sym] == computer.to_sym ? true : false
+  end
 end

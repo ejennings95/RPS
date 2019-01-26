@@ -41,6 +41,7 @@ feature 'The homepage should have a text box to fill in your name' do
   feature 'The result page should say your choice and the computers' do
     scenario 'it will say the two choices' do
       allow(RockPaperScissors).to receive_message_chain("new.move_generator").and_return("Rock")
+      allow(RockPaperScissors).to receive_message_chain("new.winner").and_return("Draw!")
       visit('/')
       fill_in 'name', with: 'name1'
       click_button 'Login'
@@ -52,12 +53,40 @@ feature 'The homepage should have a text box to fill in your name' do
 
   feature 'The result page should say the winner' do
     scenario 'it will say the winner is...' do
+      allow(RockPaperScissors).to receive_message_chain("new.move_generator").and_return("Rock")
+      allow(RockPaperScissors).to receive_message_chain("new.winner").and_return("Draw!")
       visit('/')
       fill_in 'name', with: 'name1'
       click_button 'Login'
       select "Rock", from: 'move'
       click_button 'Play'
-      expect(page).to have_content 'Winner is:'
+      expect(page).to have_content 'It is a draw!'
+    end
+  end
+
+  feature 'The result page should say the winner' do
+    scenario 'it will say the winner is...' do
+      allow(RockPaperScissors).to receive_message_chain("new.move_generator").and_return("Paper")
+      allow(RockPaperScissors).to receive_message_chain("new.winner").and_return false
+      visit('/')
+      fill_in 'name', with: 'name1'
+      click_button 'Login'
+      select "Rock", from: 'move'
+      click_button 'Play'
+      expect(page).to have_content 'It is a win for the computer this time!'
+    end
+  end
+
+  feature 'The result page should say the winner' do
+    scenario 'it will say the winner is...' do
+      allow(RockPaperScissors).to receive_message_chain("new.move_generator").and_return("Scissors")
+      allow(RockPaperScissors).to receive_message_chain("new.winner").and_return true
+      visit('/')
+      fill_in 'name', with: 'name1'
+      click_button 'Login'
+      select "Rock", from: 'move'
+      click_button 'Play'
+      expect(page).to have_content 'name1 wins!'
     end
   end
 end
