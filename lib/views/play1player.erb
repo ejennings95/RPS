@@ -1,7 +1,10 @@
+<body background="https://us.123rf.com/450wm/markovka/markovka1401/markovka140101185/25326347-seamless-wave-hand-drawn-pattern-waves-background-seamlessly-tiling-can-be-used-for-wallpaper-patter.jpg?ver=6">
+
+<div style="font-family:chalkboard; color:white">
 <center>
 <h1>
   <%= "Welcome #{@name}, lets play Rock, Paper, Scissors!" %>
-</h1>
+  <div style="display: flex; flex-direction: column; justify-content: center; height: 100vh;">
   <form action="/play" method="post">
     <label for="move">
       What move would you like to do?
@@ -12,10 +15,9 @@
     	<option value="Scissors">Scissors</option>
       <input type="submit" value="Play">
   </form>
-  <H3>
     <%= "Game count: #{@game_count}" %><br />
     <%= "#{@name} wins: #{@win_count}" %><br />
     <%= "Computer wins: #{@lose_count}" %><br />
     <%= "Draw count: #{@draw_count}" %>
-  </H3>
+  </h1>
 </center>
