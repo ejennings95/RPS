@@ -1,0 +1,24 @@
+<center>
+<h1>
+  <%= "Welcome #{@name1} and #{@name2}, lets play Rock, Paper, Scissors!" %>
+</h1>
+<h2>
+  <%= "#{@current_player} to go" %>
+</h2>
+  <form action="/player1play" method="post">
+    <label for="move">
+      What move would you like to do?
+    </label>
+    <select name="move">
+    	<option value="Rock">Rock</option>
+    	<option value="Paper">Paper</option>
+    	<option value="Scissors">Scissors</option>
+      <input type="submit" value="Play">
+  </form>
+  <H3>
+    <%= "Game count: #{@game_count}" %><br />
+    <%= "#{@name1} wins: #{@win_count}" %><br />
+    <%= "#{@name2} wins: #{@lose_count}"%><br />
+    <%= "Draw count: #{@draw_count}" %>
+  </H3>
+</center>

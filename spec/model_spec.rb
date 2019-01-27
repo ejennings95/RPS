@@ -91,3 +91,26 @@ describe Counter do
     expect { subject.draw_counter }.to change {subject.game_count}.by 1
   end
 end
+
+describe Switch do
+  let(:player_1) { double(:player_1) }
+  let(:player_2) { double(:player_2) }
+  subject(:switch) { described_class.new(player_1, player_2) }
+
+  it "should keep the record of player 1" do
+    expect(switch.player_1).to eq player_1
+  end
+
+  it "should keep the record of player 1" do
+    expect(switch.player_2).to eq player_2
+  end
+
+    it 'should know whos turn it is to start (player 1)' do
+      expect(switch.current_turn).to eq player_1
+    end
+
+  it 'should change current_turn to the opponent' do
+    switch.switching_turns
+    expect(switch.current_turn).to eq player_2
+  end
+end

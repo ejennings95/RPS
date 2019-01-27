@@ -6,13 +6,13 @@
   <%= 'It is a draw!' %>
   <% end %>
   <% if @winner == true %>
-  <%= "#{@name} wins!" %>
+  <%= "#{@name1} wins!" %>
   <% end %>
   <% if @winner == false %>
-  <%= 'It is a win for the computer this time!' %>
+  <%= "#{@name2} wins!" %>
   <% end %>
   </h1>
-  <form action="/playagain" method="post">
+  <form action="/playagain2" method="post">
     <input type="submit" value="Play again">
   </form>
 </center>

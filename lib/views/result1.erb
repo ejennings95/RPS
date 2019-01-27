@@ -1,0 +1,19 @@
+<div style="display: flex; flex-direction: column; justify-content: center; height: 100vh;">
+<center>
+  <h1>
+  <%= "#{@chosen_move} vs #{@cp_move}" %> <br />
+  <% if @winner == 'Draw!' %>
+  <%= 'It is a draw!' %>
+  <% end %>
+  <% if @winner == true %>
+  <%= "#{@name} wins!" %>
+  <% end %>
+  <% if @winner == false %>
+  <%= 'It is a win for the computer this time!' %>
+  <% end %>
+  </h1>
+  <form action="/playagain1" method="post">
+    <input type="submit" value="Play again">
+  </form>
+</center>
+</div>
