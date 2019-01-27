@@ -1,15 +1,35 @@
 <body background="https://us.123rf.com/450wm/markovka/markovka1401/markovka140101185/25326347-seamless-wave-hand-drawn-pattern-waves-background-seamlessly-tiling-can-be-used-for-wallpaper-patter.jpg?ver=6">
+
+  <style>
+    .button {
+       display: inline-block;
+       color: white;
+       background: transparent;
+       border: none;
+       padding: 12px 24px;
+       text-align: center;
+       font-size: 25px;
+       cursor: pointer;
+       text-transform: uppercase;
+        }
+
+    .button:hover {
+        background-color: orange;
+        color: white;
+         }
+  </style>
+
 <div style="display: flex; flex-direction: column; justify-content: center; height: 100vh; font-family:chalkboard; color:white">
   <center>
   <h1>Rock, Paper, Scissors - can you win?</h1>
   <div>
-    <img style='border: 5px dashed orange' height='500' width=750' src='https://cdn-images-1.medium.com/max/1000/0*CtoUAxqGUbzzzc9W.png'
-    </div>
+    <img style='border: 5px dashed orange' height='500' width=750' src='https://cdn-images-1.medium.com/max/1000/0*CtoUAxqGUbzzzc9W.png'>
+    </div><br />
   <form action="/1player" method="post">
-    <input type="submit" value="One player">
+    <input type="submit" value="One player" class="button">
   </form>
   <form action="/2player" method="post">
-    <input type="submit" value="Two player">
+    <input type="submit" value="Two player" class="button">
   </form>
 </center>
 </div>

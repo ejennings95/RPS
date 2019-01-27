@@ -1,5 +1,24 @@
 <body background="https://us.123rf.com/450wm/markovka/markovka1401/markovka140101185/25326347-seamless-wave-hand-drawn-pattern-waves-background-seamlessly-tiling-can-be-used-for-wallpaper-patter.jpg?ver=6">
 
+  <style>
+    .button {
+       display: inline-block;
+       color: white;
+       background: transparent;
+       border: none;
+       padding: 12px 24px;
+       text-align: center;
+       font-size: 25px;
+       cursor: pointer;
+       text-transform: uppercase;
+        }
+
+    .button:hover {
+        background-color: orange;
+        color: white;
+         }
+  </style>
+
 <div style="display: flex; flex-direction: column; justify-content: center; height: 100vh; font-family:chalkboard; color:white">
 <center>
   <h1>
@@ -15,7 +34,7 @@
   <% end %>
   </h1>
   <form action="/playagain1" method="post">
-    <input type="submit" value="Play again">
+    <input type="submit" value="Play again" class="button">
   </form>
 </center>
 </div>
